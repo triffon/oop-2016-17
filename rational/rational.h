@@ -9,7 +9,7 @@
 #define RATIONAL_H_
 
 class Rational {
-// private:
+private:
 
 	/* Член-данни */
 	long numer; // числител
@@ -28,7 +28,7 @@ public:
 	Rational();
 
 	// конструктор с параметри
-	Rational(long n, long d);
+	Rational(long numer, long denom);
 
 	/** Селектори **/
 

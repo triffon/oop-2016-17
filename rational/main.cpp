@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <cmath>
-using namespace std;
+// using namespace std;
 #include "rational.h"
 #include "rational.h"
 
@@ -30,18 +30,20 @@ Rational myexp(int k, int n) {
 	return sum;
 }
 
+const int endl = 10;
+
 int main() {
 	Rational r;
 	// Rational s = { 1, 2 };
 	Rational s(1, 2);
 	// Rational s = Rational(1, 2);
 	// !!! cout << s.numer << '/' << s.denom << endl;
-	cout << s.getNumerator() << '/' << s.getDenominator() << endl;
+	std::cout << s.getNumerator() << '/' << s.getDenominator() << std::endl;
 	s.print();
-	cout << s.toDouble() << endl;
+	std::cout << s.toDouble() << std::endl;
 	s.read();
 	s.print();
-	cout << s.toDouble() << endl;
+	std::cout << s.toDouble() << std::endl;
 
 	add(s, Rational(1, 2)).print();
 	subtract(s, Rational(1, 2)).print();
@@ -53,11 +55,27 @@ int main() {
 
 	Rational er = myexp(1, 10);
 	er.print();
-	cout << er.toDouble() << endl;
+	std::cout << er.toDouble() << std::endl;
 	// !!! er.numer = 5;
 
 	// Не е препоръчително
 	// !!! class A { int a; public: int getA() const; } objectA;
+
+	Rational* ps = &s;
+	// !!! *ps.print();
+	// !!! *(ps.print());
+	(*ps).print();
+	ps->print();
+	s.toDouble();
+	ps->toDouble();
+
+	// !!! s.reduce();
+	// !!! ps->reduce();
+
+	int endl = 5;
+	std::cout << s.getNumerator() << endl;
+	std::cout << s.getNumerator() << ::endl;
+	std::cout << s.getNumerator() << std::endl;
 
 	return 0;
 }

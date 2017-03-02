@@ -24,9 +24,9 @@ Rational::Rational() {
 	denom = 1;
 }
 
-Rational::Rational(long n, long d) {
-	numer = n;
-	setDenominator(d);
+Rational::Rational(long numer, long denom) {
+	this->numer = numer;
+	setDenominator(denom);
 }
 
 long Rational::getNumerator() const {
@@ -38,8 +38,9 @@ long Rational::getDenominator() const {
 }
 
 void Rational::reduce() {
+	// Rational * const this;
 	if (numer == 0)
-		denom = 1;
+		this->denom = 1;
 	else {
 		long g = gcd(abs(numer), denom);
 		numer /= g;
@@ -69,7 +70,11 @@ void Rational::setDenominator(long d) {
 }
 
 void Rational::print() const {
-	cout << getNumerator() << '/' << getDenominator() << endl;
+	// Rational const * const this;
+	// !!! this = &s;
+	// this->numer = 5;
+	// cout << this->numer;
+	cout << this->getNumerator() << '/' << this->getDenominator() << endl;
 }
 
 double Rational::toDouble() const {
