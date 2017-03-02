@@ -38,6 +38,7 @@ int main() {
 	Rational s(1, 2);
 	// Rational s = Rational(1, 2);
 	// !!! cout << s.numer << '/' << s.denom << endl;
+	// std::cout << s->numer << '/' << s->denom << std::endl;
 	std::cout << s.getNumerator() << '/' << s.getDenominator() << std::endl;
 	s.print();
 	std::cout << s.toDouble() << std::endl;

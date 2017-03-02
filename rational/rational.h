@@ -33,10 +33,14 @@ public:
 	/** Селектори **/
 
 	// селектор за числителя
-	long getNumerator() const;
+	long getNumerator() const {
+		return numer;
+	}
 
 	// селектор за знаменателя
-	long getDenominator() const;
+	long getDenominator() const {
+		return denom;
+	}
 
 	// извеждане
 	void print() const;
@@ -53,6 +57,10 @@ public:
 	void read();
 
 };
+
+inline double Rational::toDouble() const {
+	return (double)getNumerator() / getDenominator();
+}
 
 Rational add(Rational p, Rational q);
 

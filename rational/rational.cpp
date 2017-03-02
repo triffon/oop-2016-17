@@ -29,6 +29,7 @@ Rational::Rational(long numer, long denom) {
 	setDenominator(denom);
 }
 
+/*
 long Rational::getNumerator() const {
 	return numer;
 }
@@ -36,6 +37,7 @@ long Rational::getNumerator() const {
 long Rational::getDenominator() const {
 	return denom;
 }
+*/
 
 void Rational::reduce() {
 	// Rational * const this;
@@ -75,10 +77,6 @@ void Rational::print() const {
 	// this->numer = 5;
 	// cout << this->numer;
 	cout << this->getNumerator() << '/' << this->getDenominator() << endl;
-}
-
-double Rational::toDouble() const {
-	return (double)getNumerator() / getDenominator();
 }
 
 void Rational::read() {
