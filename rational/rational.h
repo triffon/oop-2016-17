@@ -10,26 +10,46 @@
 
 class Rational {
 // private:
+
+	/* Член-данни */
 	long numer; // числител
 	long denom; // знаменател
 
+	/* Служебни член-функции */
+
+	// съкращава рационалното число
 	void reduce();
 
 public:
+
+	/** Конструктори **/
+
+	// конструктор по подразбиране
 	Rational();
 
+	// конструктор с параметри
 	Rational(long n, long d);
 
-	long getNumerator();
+	/** Селектори **/
 
-	long getDenominator();
+	// селектор за числителя
+	long getNumerator() const;
 
+	// селектор за знаменателя
+	long getDenominator() const;
+
+	// извеждане
+	void print() const;
+
+	// селектор за преобразуване до число с плаваща запетая
+	double toDouble() const;
+
+	/** Мутатори **/
+
+	// мутатор за знаменателя
 	void setDenominator(long d);
 
-	void print();
-
-	double toDouble();
-
+	// мутатор за въвеждане от клавиатурата
 	void read();
 
 };

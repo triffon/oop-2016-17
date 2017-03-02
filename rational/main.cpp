@@ -9,6 +9,15 @@
 #include <cmath>
 using namespace std;
 #include "rational.h"
+#include "rational.h"
+
+/*
+ * !!!
+class Rational {
+	int numer, denom;
+	// ...
+};
+*/
 
 long fact(int n) {
 	return n == 0 ? 1 : n * fact(n - 1);
@@ -25,6 +34,7 @@ int main() {
 	Rational r;
 	// Rational s = { 1, 2 };
 	Rational s(1, 2);
+	// Rational s = Rational(1, 2);
 	// !!! cout << s.numer << '/' << s.denom << endl;
 	cout << s.getNumerator() << '/' << s.getDenominator() << endl;
 	s.print();
@@ -46,6 +56,8 @@ int main() {
 	cout << er.toDouble() << endl;
 	// !!! er.numer = 5;
 
+	// Не е препоръчително
+	// !!! class A { int a; public: int getA() const; } objectA;
 
 	return 0;
 }

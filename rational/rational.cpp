@@ -9,7 +9,6 @@
 #include "rational.h"
 using namespace std;
 
-
 long gcd(long a, long b) {
 	while (a != b)
 		if (a > b)
@@ -30,11 +29,11 @@ Rational::Rational(long n, long d) {
 	setDenominator(d);
 }
 
-long Rational::getNumerator() {
+long Rational::getNumerator() const {
 	return numer;
 }
 
-long Rational::getDenominator() {
+long Rational::getDenominator() const {
 	return denom;
 }
 
@@ -69,11 +68,11 @@ void Rational::setDenominator(long d) {
 	}
 }
 
-void Rational::print() {
+void Rational::print() const {
 	cout << getNumerator() << '/' << getDenominator() << endl;
 }
 
-double Rational::toDouble() {
+double Rational::toDouble() const {
 	return (double)getNumerator() / getDenominator();
 }
 
