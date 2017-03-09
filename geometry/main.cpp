@@ -8,8 +8,9 @@
 #include <iostream>
 using namespace std;
 #include "point2d.h"
+#include "point3d.h"
 
-int main() {
+void testPoint2D() {
 	Point2D p;
 	Point2D q(3, 4), r(7, 7);
 	cout << p.radius() << ' ' << q.radius() << endl;
@@ -20,7 +21,18 @@ int main() {
 	q.read();
 	r.read();
 	cout << q.distance(r) << endl;
-	return 0;
 }
 
+void testPoint3D() {
+	Point3D p;
+	Point3D q(3, 4, 12);
+	cout << q.radius() << endl;
+	Point3D r(15, 7, 16);
+	cout << q.distance(r) << endl;
+}
+
+int main() {
+	// testPoint2D();
+	testPoint3D();
+}
 
