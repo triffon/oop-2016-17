@@ -40,6 +40,7 @@ public:
 	// Връща отрицателно число от -1 до -4, ако лежи на някоя от осите
 	// указва от коя страна на осите е
 	// Връща 0, ако е началото на координатната система
+	// за домашно
 	short quadrant() const;
 
 	// извеждане
@@ -56,13 +57,18 @@ public:
 	void read();
 
 	// симетрия относно x == y
+	// за домашно
 	void reflect();
 
+	// симетрия относно началото на координатната система
+	void reflectOrigin();
+
 	// установяване на координати
-	void setX(double x);
-	void setY(double y);
+	void setX(double x) { this->x = x; }
+	void setY(double y) { this->y = y; }
 
 	// ротация относно origin с ъгъл angle
+	// за домашно
 	void rotate(Point2D const& origin, double angle);
 };
 
