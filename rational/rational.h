@@ -24,8 +24,8 @@ public:
 
 	/** Конструктори **/
 
-	// конструктор по подразбиране
-	Rational();
+	// Комбиниран конструктор по подразбиране и с параметри
+	Rational(long numer = 1, long denom = 0);
 
 	// конструктор с параметри
 	Rational(long numer, long denom);

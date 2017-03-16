@@ -8,9 +8,7 @@
 #include <iostream>
 #include "lstack.h"
 
-LinkedStack::LinkedStack() {
-	top = nullptr;
-}
+LinkedStack::LinkedStack() : top(nullptr) {}
 
 bool LinkedStack::empty() const {
 	return top == nullptr;

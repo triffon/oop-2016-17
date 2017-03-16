@@ -8,10 +8,8 @@
 #include <iostream>
 #include "rstack.h"
 
-ResizingStack::ResizingStack() {
-	capacity = INITIAL;
+ResizingStack::ResizingStack() : top(-1), capacity(INITIAL) {
 	a = new int[capacity];
-	top = -1;
 }
 
 bool ResizingStack::empty() const {

@@ -18,15 +18,8 @@ long gcd(long a, long b) {
 	return a;
 }
 
-
-Rational::Rational() {
-	numer = 0;
-	denom = 1;
-}
-
-Rational::Rational(long numer, long denom) {
-	this->numer = numer;
-	setDenominator(denom);
+Rational::Rational(long n, long d) : numer(n) {
+	setDenominator(d);
 }
 
 /*

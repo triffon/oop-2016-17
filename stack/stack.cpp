@@ -8,9 +8,7 @@
 #include <iostream>
 #include "stack.h"
 
-Stack::Stack() {
-	top = -1;
-}
+Stack::Stack() : top(-1) {}
 
 bool Stack::empty() const {
 	return top == -1;
