@@ -58,3 +58,7 @@ void ResizingStack::resize() {
 	delete[] olda;
 	std::cerr << "Стекът е разширен до " << capacity << " елемента.\n";
 }
+
+ResizingStack::~ResizingStack() {
+	delete[] a;
+}
