@@ -27,8 +27,8 @@ public:
 	// Комбиниран конструктор по подразбиране и с параметри
 	Rational(long numer = 1, long denom = 0);
 
-	// конструктор с параметри
-	Rational(long numer, long denom);
+	// Конструктор за копиране
+	Rational(Rational const& r);
 
 	/** Селектори **/
 

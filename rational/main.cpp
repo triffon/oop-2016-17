@@ -32,7 +32,7 @@ Rational myexp(int k, int n) {
 
 const int endl = 10;
 
-int main() {
+void testRational() {
 	Rational r;
 	// Rational s = { 1, 2 };
 	Rational s(1, 2);
@@ -77,8 +77,27 @@ int main() {
 	std::cout << s.getNumerator() << endl;
 	std::cout << s.getNumerator() << ::endl;
 	std::cout << s.getNumerator() << std::endl;
+}
 
+Rational addOne(Rational r) {
+	return add(r, Rational(1));
+}
+
+void testCopy() {
+	Rational r(2, 3);
+	r.print();
+	// Rational p(r);
+	// Rational p = Rational(r);
+	Rational p = r;
+	p.print();
+	addOne(p).print();
+}
+
+int main() {
+	// testRational();
+	testCopy();
 	return 0;
+
 }
 
 

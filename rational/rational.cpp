@@ -116,3 +116,9 @@ Rational reciprocal(Rational p) {
 Rational divide(Rational p, Rational q) {
 	return multiply(p, reciprocal(q));
 }
+
+Rational::Rational(Rational const& r)
+   //: numer(r.numer + 1), denom(r.denom + 1) {}
+	: numer(r.numer), denom(r.denom) {
+	cerr << "Копиране на Rational!\n";
+}
