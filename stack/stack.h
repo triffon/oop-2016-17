@@ -17,6 +17,8 @@ private:
 	int a[MAX];
 	int top;	// Индекс на последния елемент в стека
 
+	bool full() const;
+
 public:
 
 	// създаване на празен стек
