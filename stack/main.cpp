@@ -19,8 +19,21 @@ void testStack() {
 	for(int i = 1; i <= 10; i++)
 		s.push(i);
 
+	MyStack s2 = s;
+	s2.pop();
+	int* p = new int;
+	s2.push(100);
+	std::cout << s2.peek() << std::endl;
+
 	while (!s.empty())
 		std::cout << s.pop() << ' ';
+
+	for(int i = 0; i < 1E8; i++) {
+		MyStack* s = new MyStack;
+		s->push(1);
+		// s.pop();
+		delete s;
+	}
 
 }
 
