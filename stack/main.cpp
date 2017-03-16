@@ -7,9 +7,13 @@
 
 #include <iostream>
 #include "stack.h"
+#include "rstack.h"
+
+// typedef Stack MyStack;
+typedef ResizingStack MyStack;
 
 void testStack() {
-	Stack s;
+	MyStack s;
 	for(int i = 1; i <= 10; i++)
 		s.push(i);
 
@@ -25,7 +29,7 @@ char digitToChar(int d) {
 }
 
 void baseConvert(int n, int k) {
-	Stack s;
+	MyStack s;
 	if (n == 0)
 		s.push(0);
 
@@ -52,7 +56,7 @@ void testBaseConvert() {
  */
 
 int calculateExpr(char const* s) {
-	Stack stack;
+	MyStack stack;
 	while (*s) {
 		if (*s == '('); // Пропускаме
 
@@ -95,7 +99,7 @@ bool match(char open, char close) {
 }
 
 bool checkParentheses(char const* s) {
-	Stack stack;
+	MyStack stack;
 	while (*s) {
 
 		if (*s == '(' || *s == '[' || *s == '{')
