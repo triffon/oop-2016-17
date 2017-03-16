@@ -8,9 +8,11 @@
 #include <iostream>
 #include "stack.h"
 #include "rstack.h"
+#include "lstack.h"
 
 // typedef Stack MyStack;
-typedef ResizingStack MyStack;
+// typedef ResizingStack MyStack;
+typedef LinkedStack MyStack;
 
 void testStack() {
 	MyStack s;
@@ -136,9 +138,9 @@ void testCheckParentheses() {
 }
 
 int main() {
-	// testStack();
+	testStack();
 	// testBaseConvert();
 	// testCalculateExpr();
-	testCheckParentheses();
+	// testCheckParentheses();
 	return 0;
 }
