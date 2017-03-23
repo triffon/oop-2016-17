@@ -19,7 +19,7 @@ private:
 public:
 
 	// Конструктор по подразбиране / с параметри
-	Player(char const* _name = "Анонимен", int _score = 0);
+	Player(char const* n = "Анонимен", int s = 0);
 
 	/* Селектори */
 	char const* getName() const { return name; }
@@ -29,8 +29,8 @@ public:
 	void print() const;
 
 	/* Мутатори */
-	void setName(char const* _name);
-	void setScore(int _score);
+	void setName(char const* n);
+	void setScore(int s) { score = s; }
 
 };
 
