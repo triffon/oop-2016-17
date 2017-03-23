@@ -8,18 +8,19 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
-int const MAX = 100;
-
 class Player {
 private:
 
-	char name[MAX];		// Име на играча
-	int score;			// Резултат в точки
+	char* name;		// Име на играча
+	int score;		// Резултат в точки
 
 public:
 
 	// Конструктор по подразбиране / с параметри
 	Player(char const* n = "Анонимен", int s = 0);
+
+	// Конструктор за копиране
+	Player(Player const&);
 
 	/* Селектори */
 	char const* getName() const { return name; }

@@ -9,13 +9,22 @@
 #include <cstring>
 #include "player.h"
 
-Player::Player(char const* n, int s) : score(s) {
+Player::Player(char const* n, int s) : name(nullptr), score(s) {
 	setName(n);
 }
 
+Player::Player(Player const& p) : name(nullptr), score(p.score) {
+	setName(p.name);
+}
+
 void Player::setName(char const* n) {
-	strncpy(name, n, MAX);
-	name[MAX - 1] = '\0';
+	// Може би в name вече има заделена памет?
+	// изтриваме старата памет
+	delete[] name;
+	// Заделяме нова, точно колкото трябва
+	name = new char[strlen(n) + 1];
+	// копираме името
+	strcpy(name, n);
 }
 
 void Player::print() const {

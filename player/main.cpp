@@ -19,8 +19,11 @@ void testPlayer() {
 	Player p2 = p1;
 	p2.print();
 	p2.setName("Гандалф Белия");
+	p1.print();
 	p2.print();
 	anonymousPrint(p2);
+	p1.print();
+	p2.print();
 }
 
 int main() {
