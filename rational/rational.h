@@ -25,7 +25,7 @@ public:
 	/** Конструктори **/
 
 	// Комбиниран конструктор по подразбиране и с параметри
-	Rational(long numer = 1, long denom = 0);
+	Rational(long numer = 0, long denom = 1);
 
 	// Конструктор за копиране
 	Rational(Rational const& r);

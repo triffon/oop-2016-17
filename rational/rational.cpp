@@ -69,7 +69,7 @@ void Rational::print() const {
 	// !!! this = &s;
 	// this->numer = 5;
 	// cout << this->numer;
-	cout << this->getNumerator() << '/' << this->getDenominator() << endl;
+	cout << this->getNumerator() << '/' << this->getDenominator();
 }
 
 void Rational::read() {

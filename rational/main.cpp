@@ -10,6 +10,7 @@
 // using namespace std;
 #include "rational.h"
 #include "rational.h"
+#include "rational_point.h"
 
 /*
  * !!!
@@ -93,9 +94,29 @@ void testCopy() {
 	addOne(p).print();
 }
 
+void testRationalPoint() {
+	RationalPoint rp;
+	rp.print();
+	RationalPoint rp2(7, Rational(5, 3));
+	rp2.print();
+	RationalPoint rp3 = rp2;
+	rp3.print();
+}
+
+void testArrays() {
+	Rational *ar = new Rational[5];
+	for(int i = 0; i < 5; i++) {
+		ar[i].print();
+		std::cout << std::endl;
+	}
+	delete ar;
+}
+
 int main() {
 	// testRational();
-	testCopy();
+	// testCopy();
+	// testRationalPoint();
+	testArrays();
 	return 0;
 
 }
