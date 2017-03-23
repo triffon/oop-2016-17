@@ -31,3 +31,7 @@ void Player::print() const {
 	std::cout << "Име: "      << getName()  << std::endl
 			  << "Резултат: " << getScore() << std::endl;
 }
+
+Player::~Player() {
+	delete[] name;
+}

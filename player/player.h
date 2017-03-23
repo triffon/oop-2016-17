@@ -33,6 +33,9 @@ public:
 	void setName(char const* n);
 	void setScore(int s) { score = s; }
 
+	// Деструктор
+	~Player();
+
 };
 
 
