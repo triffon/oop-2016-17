@@ -22,10 +22,16 @@ private:
 	// Разширяване на стека
 	void resize();
 
+	// Копиране на паметта на стека от друго място
+	void copy(int const*);
+
 public:
 
 	// създаване на празен стек
 	ResizingStack();
+
+	// Конструктор за копиране
+	ResizingStack(ResizingStack const&);
 
 	// проверка дали стек е празен
 	bool empty() const;

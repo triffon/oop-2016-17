@@ -48,15 +48,26 @@ int ResizingStack::peek() const {
 void ResizingStack::resize() {
 	int* olda = a;
 	a = new int[2 * capacity];
-	// Прехвърляме данните
-	for(int i = 0; i < capacity; i++)
-		a[i] = olda[i];
+	copy(olda);
 	// легализираме удвояването на капацитета
 	capacity *= 2;
+	// Изтриваме старата памет
 	delete[] olda;
 	std::cerr << "Стекът е разширен до " << capacity << " елемента.\n";
 }
 
+void ResizingStack::copy(int const* other) {
+	// Прехвърляме данните
+	for(int i = 0; i < capacity; i++)
+		a[i] = other[i];
+}
+
 ResizingStack::~ResizingStack() {
 	delete[] a;
+}
+
+ResizingStack::ResizingStack(ResizingStack const& rs)
+	: top(rs.top), capacity(rs.capacity) {
+	a = new int[capacity];
+	copy(rs.a);
 }
