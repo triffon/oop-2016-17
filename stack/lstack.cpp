@@ -42,3 +42,19 @@ int LinkedStack::peek() const {
 	}
 	return top->data;
 }
+
+LinkedStack::~LinkedStack() {
+	// !!! delete top;
+	// !!! delete[] top;
+	while (!empty())
+		pop();
+}
+
+LinkedStack::LinkedStack(LinkedStack const& ls) :
+	top(nullptr) {
+	// !!! Безкрайна рекурсия!
+	LinkedStack lscopy = ls;
+	while (!lscopy.empty()) {
+		push(lscopy.pop());
+	}
+}

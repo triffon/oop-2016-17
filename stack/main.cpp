@@ -28,12 +28,14 @@ void testStack() {
 	while (!s.empty())
 		std::cout << s.pop() << ' ';
 
+
 	for(int i = 0; i < 1E8; i++) {
 		MyStack* s = new MyStack;
 		s->push(1);
 		// s.pop();
 		delete s;
 	}
+
 
 }
 

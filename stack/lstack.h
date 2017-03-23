@@ -22,6 +22,9 @@ public:
 	// създаване на празен стек
 	LinkedStack();
 
+	// Конструктор за копиране
+	LinkedStack(LinkedStack const&);
+
 	// проверка дали стек е празен
 	bool empty() const;
 
@@ -33,6 +36,9 @@ public:
 
 	// поглеждане на елемента на върха на стека
 	int peek() const;
+
+	// деструктор
+	~LinkedStack();
 };
 
 
