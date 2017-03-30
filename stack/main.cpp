@@ -28,7 +28,12 @@ void testStack() {
 	while (!s.empty())
 		std::cout << s.pop() << ' ';
 
+	while (!s2.empty())
+		std::cout << s2.pop() << ' ';
 
+	return;
+
+	// тестване за Memory leak
 	for(int i = 0; i < 1E8; i++) {
 		MyStack* s = new MyStack;
 		s->push(1);

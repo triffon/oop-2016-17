@@ -52,9 +52,37 @@ LinkedStack::~LinkedStack() {
 
 LinkedStack::LinkedStack(LinkedStack const& ls) :
 	top(nullptr) {
-	// !!! Безкрайна рекурсия!
-	LinkedStack lscopy = ls;
-	while (!lscopy.empty()) {
-		push(lscopy.pop());
+
+	// ако ls е празен, няма какво да правим повече
+	if (ls.empty())
+		return;
+
+	// сигурни сме, че в ls има поне един елемент
+
+	// копираме първия елемент
+	StackElement* lastCopied = new StackElement;
+	lastCopied->data = ls.top->data;
+
+	// първият копиран елемент е върхът на стека
+	top = lastCopied;
+
+	// копираме останалите от втория елемент нататък
+	for(StackElement* toCopy = ls.top->next;
+			toCopy != nullptr;
+			toCopy = toCopy -> next) {
+		// правим копие на клетката, която сочи toCopy
+		StackElement* copied = new StackElement;
+		copied->data = toCopy->data;
+		lastCopied->next = copied;
+		lastCopied = copied;
 	}
+
+	// Последният елемент няма следващ
+	lastCopied->next = nullptr;
 }
+
+
+
+
+
+
