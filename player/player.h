@@ -38,6 +38,9 @@ public:
 	// Деструктор
 	~Player();
 
+	// Операция за присвояване
+	Player& operator=(Player const& p);
+
 };
 
 std::istream& operator>>(std::istream& i, Player& r);
