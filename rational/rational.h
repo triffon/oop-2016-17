@@ -8,6 +8,8 @@
 #ifndef RATIONAL_H_
 #define RATIONAL_H_
 
+#include <iostream>
+
 class Rational {
 private:
 
@@ -56,6 +58,8 @@ public:
 	// мутатор за въвеждане от клавиатурата
 	void read();
 
+	friend std::istream& operator>>(std::istream& i, Rational& r);
+
 };
 
 inline double Rational::toDouble() const {
@@ -73,6 +77,8 @@ Rational multiply(Rational p, Rational q);
 Rational reciprocal(Rational p);
 
 Rational divide(Rational p, Rational q);
+
+std::ostream& operator<<(std::ostream& o, Rational const& r);
 
 
 #endif /* RATIONAL_H_ */

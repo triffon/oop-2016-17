@@ -10,9 +10,9 @@
 #include "player.h"
 
 void anonymousPrint(Player p) {
-	p.print();
+	std::cout << p;
 	p.setName("Анонимен");
-	p.print();
+	std::cout << p;
 }
 
 void testPlayer() {
@@ -33,6 +33,9 @@ void testPlayer() {
 	p3.print();
 	// !!! Player p4 = 5;
 	anonymousPrint("Фродо");
+
+	std::cin >> p1;
+	std::cout << p1;
 }
 
 void testDestructor() {
@@ -62,8 +65,8 @@ void testDestructor() {
 }
 
 int main() {
-	// testPlayer();
-	testDestructor();
+	testPlayer();
+	// testDestructor();
 	return 0;
 }
 

@@ -35,3 +35,19 @@ void Player::print() const {
 Player::~Player() {
 	delete[] name;
 }
+
+std::ostream& operator<<(std::ostream& o, Player const& p) {
+	return o << "Име: "      << p.getName()  << std::endl
+			 << "Резултат: " << p.getScore() << std::endl;
+}
+
+std::istream& operator>>(std::istream& i, Player& p) {
+	const int MAX = 1000;
+	char name[MAX];
+	double score;
+	i.getline(name, MAX) >> score;
+	p.setName(name);
+	p.setScore(score);
+	return i;
+}
+

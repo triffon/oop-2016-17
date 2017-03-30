@@ -122,3 +122,21 @@ Rational::Rational(Rational const& r)
 	: numer(r.numer), denom(r.denom) {
 	cerr << "Копиране на Rational!\n";
 }
+
+std::ostream& operator<<(std::ostream& o, Rational const& r) {
+	return o << r.getNumerator() << '/' << r.getDenominator();
+}
+
+std::istream& operator>>(std::istream& i, Rational& r) {
+	/*
+	char c;
+	return i >> r.numer >> c >> r.denom;
+	*/
+	char c;
+	long numer, denom;
+	i >> numer >> c >> denom;
+	// r = Rational(numer, denom);
+	r.numer = numer;
+	r.setDenominator(denom);
+	return i;
+}

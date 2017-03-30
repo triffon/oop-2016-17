@@ -8,6 +8,8 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
+#include <iostream>
+
 class Player {
 private:
 
@@ -37,6 +39,9 @@ public:
 	~Player();
 
 };
+
+std::istream& operator>>(std::istream& i, Player& r);
+std::ostream& operator<<(std::ostream& o, Player const& r);
 
 
 
