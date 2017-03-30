@@ -41,6 +41,10 @@ public:
 
 	// деструктор
 	~LinkedStack();
+
+	void operator+=(int x) {
+		push(x);
+	}
 };
 
 

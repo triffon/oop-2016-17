@@ -27,7 +27,7 @@ long fact(int n) {
 Rational myexp(int k, int n) {
 	Rational sum;
 	for(int i = 0; i <= n; i++)
-		sum = add(sum,Rational(pow(k, i),fact(i)));
+		sum = sum + Rational(pow(k, i),fact(i));
 	return sum;
 }
 
@@ -47,7 +47,7 @@ void testRational() {
 	s.print();
 	std::cout << s.toDouble() << std::endl;
 
-	add(s, Rational(1, 2)).print();
+	(s + Rational(1, 2)).print();
 	subtract(s, Rational(1, 2)).print();
 	multiply(s, Rational(1, 2)).print();
 	divide(s, Rational(1, 2)).print();
@@ -81,7 +81,7 @@ void testRational() {
 }
 
 Rational addOne(Rational r) {
-	return add(r, Rational(1));
+	return 1 + r;// r + 1;
 }
 
 void testCopy() {

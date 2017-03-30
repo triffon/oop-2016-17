@@ -62,7 +62,7 @@ inline double Rational::toDouble() const {
 	return (double)getNumerator() / getDenominator();
 }
 
-Rational add(Rational p, Rational q);
+Rational operator+(Rational const& p, Rational const& q);
 
 Rational negation(Rational p);
 

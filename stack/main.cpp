@@ -14,12 +14,34 @@
 // typedef ResizingStack MyStack;
 typedef LinkedStack MyStack;
 
+// s += x
+/*
+void operator+=(MyStack& s, int x) {
+	s.push(x);
+}
+*/
+
+// s + x
+MyStack operator+(MyStack const& s, int x) {
+	MyStack s2 = s;
+	s2.push(x);
+	return s2;
+}
+
+// x + s
+MyStack operator+(int x, MyStack s) {
+	return s + x;
+}
+
 void testStack() {
 	MyStack s;
 	for(int i = 1; i <= 10; i++)
-		s.push(i);
+		s += i;
+		// s.operator+=(i);
+		// operator+=(s, i);
 
-	MyStack s2 = s;
+	//MyStack s2 = s + 200;
+	MyStack s2 = 200 + s;
 	s2.pop();
 	int* p = new int;
 	s2.push(100);

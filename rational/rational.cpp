@@ -82,7 +82,7 @@ void Rational::read() {
 	setDenominator(d);
 }
 
-Rational add(Rational p, Rational q) {
+Rational operator+(Rational const& p, Rational const& q) {
 	return Rational(p.getNumerator() * q.getDenominator() +
 					q.getNumerator() * p.getDenominator(),
 					p.getDenominator() * q.getDenominator());
@@ -101,7 +101,7 @@ Rational subtract(Rational p, Rational q) {
 */
 
 Rational subtract(Rational p, Rational q) {
-	return add(p, negation(q));
+	return p + negation(q);
 }
 
 Rational multiply(Rational p, Rational q) {
