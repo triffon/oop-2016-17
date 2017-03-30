@@ -50,6 +50,7 @@ LinkedStack::~LinkedStack() {
 		pop();
 }
 
+/*
 LinkedStack::LinkedStack(LinkedStack const& ls) :
 	top(nullptr) {
 
@@ -81,7 +82,33 @@ LinkedStack::LinkedStack(LinkedStack const& ls) :
 	lastCopied->next = nullptr;
 }
 
+*/
 
+void LinkedStack::copy(StackElement* toCopy) {
+	if (toCopy == nullptr)
+		return;
+	// сигурен съм, че има поне един елемент
+	// Копирам стека от втория елемент нататък
+	copy(toCopy->next);
+	// добавям и първия елемент отгоре
+	push(toCopy->data);
+}
+
+LinkedStack::LinkedStack(LinkedStack const& ls) :
+	top(nullptr) {
+	copy(ls.top);
+}
+
+/*
+LinkedStack::LinkedStack(LinkedStack const& ls) :
+		top(nullptr) {
+	for(StackElement* toCopy = ls.top;
+			toCopy != nullptr;
+			toCopy = toCopy -> next) {
+		push(toCopy->data);
+	}
+}
+*/
 
 
 

@@ -17,6 +17,8 @@ class LinkedStack {
 private:
 	StackElement* top;
 
+	void copy(StackElement* toCopy);
+
 public:
 
 	// създаване на празен стек
