@@ -60,6 +60,12 @@ public:
 
 	friend std::istream& operator>>(std::istream& i, Rational& r);
 
+	Rational& operator*=(Rational const&);
+	Rational operator*(Rational const&) const;
+
+	// operator int() { return numer / denom; }
+	operator double() { return (double)numer / denom; }
+
 };
 
 inline double Rational::toDouble() const {

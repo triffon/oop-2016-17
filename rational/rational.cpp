@@ -140,3 +140,25 @@ std::istream& operator>>(std::istream& i, Rational& r) {
 	r.setDenominator(denom);
 	return i;
 }
+
+Rational& Rational::operator*=(Rational const& r) {
+	numer *= r.numer;
+	// !!! denom *= r.denom;
+	// Искаме да се съкратят евентуално
+	setDenominator(denom * r.denom);
+	return *this;
+	/*
+	 * return (*this = *this * r);
+	 */
+}
+
+Rational Rational::operator*(Rational const& r) const {
+	Rational temp = *this;
+	return temp *= r;
+}
+
+
+
+
+
+

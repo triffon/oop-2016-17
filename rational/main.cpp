@@ -81,7 +81,7 @@ void testRational() {
 }
 
 Rational addOne(Rational r) {
-	return 1 + r;// r + 1;
+	return Rational(1) + r;// r + 1;
 }
 
 void testCopy() {
@@ -112,11 +112,20 @@ void testArrays() {
 	delete ar;
 }
 
+void testConvert() {
+	Rational r(9, 4);
+	Rational q = 3;
+	int x = r;
+	std::cout << x << std::endl;
+	std::cout << sqrt(r) << std::endl;
+}
+
 int main() {
 	// testRational();
 	// testCopy();
 	// testRationalPoint();
-	testArrays();
+	// testArrays();
+	testConvert();
 	return 0;
 
 }
