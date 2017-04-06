@@ -25,6 +25,12 @@ private:
 	// Копиране на паметта на стека от друго място
 	void copy(int const*);
 
+	// Изтриване на паметта
+	void eraseStack();
+
+	// Копиране на стека
+	void copyStack(ResizingStack const&);
+
 public:
 
 	// създаване на празен стек
@@ -32,6 +38,12 @@ public:
 
 	// Конструктор за копиране
 	ResizingStack(ResizingStack const&);
+
+	// Операция за присвояване
+	ResizingStack& operator=(ResizingStack const&);
+
+	// унищожаване на стека
+	~ResizingStack();
 
 	// проверка дали стек е празен
 	bool empty() const;
@@ -44,9 +56,6 @@ public:
 
 	// поглеждане на елемента на върха на стека
 	int peek() const;
-
-	// унищожаване на стека
-	~ResizingStack();
 };
 
 

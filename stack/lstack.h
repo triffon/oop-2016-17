@@ -19,6 +19,10 @@ private:
 
 	void copy(StackElement* toCopy);
 
+	void eraseStack();
+
+	void copyStack(LinkedStack const&);
+
 public:
 
 	// създаване на празен стек
@@ -26,6 +30,12 @@ public:
 
 	// Конструктор за копиране
 	LinkedStack(LinkedStack const&);
+
+	// операция за присвояване
+	LinkedStack& operator=(LinkedStack const&);
+
+	// деструктор
+	~LinkedStack();
 
 	// проверка дали стек е празен
 	bool empty() const;
@@ -38,9 +48,6 @@ public:
 
 	// поглеждане на елемента на върха на стека
 	int peek() const;
-
-	// деструктор
-	~LinkedStack();
 
 	LinkedStack& operator+=(int x) {
 		push(x);

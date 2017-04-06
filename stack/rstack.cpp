@@ -62,12 +62,37 @@ void ResizingStack::copy(int const* other) {
 		a[i] = other[i];
 }
 
-ResizingStack::~ResizingStack() {
+void ResizingStack::eraseStack() {
 	delete[] a;
 }
 
-ResizingStack::ResizingStack(ResizingStack const& rs)
-	: top(rs.top), capacity(rs.capacity) {
+ResizingStack::~ResizingStack() {
+	eraseStack();
+}
+
+void ResizingStack::copyStack(ResizingStack const& rs) {
+	top = rs.top;
+	capacity = rs.capacity;
 	a = new int[capacity];
 	copy(rs.a);
+
 }
+
+ResizingStack::ResizingStack(ResizingStack const& rs) {
+	copyStack(rs);
+}
+
+ResizingStack& ResizingStack::operator=(ResizingStack const& rs) {
+	if (this != &rs) {
+		/** !!!
+		 * !!!!
+		~ResizingStack();
+		ResizingStack(rs);
+		*/
+		eraseStack();
+		copyStack(rs);
+	}
+	return *this;
+}
+
+
