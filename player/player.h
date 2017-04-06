@@ -24,6 +24,12 @@ public:
 	// Конструктор за копиране
 	Player(Player const&);
 
+	// Операция за присвояване
+	Player& operator=(Player const& p);
+
+	// Деструктор
+	~Player();
+
 	/* Селектори */
 	char const* getName() const { return name; }
 	int getScore() const { return score; }
@@ -34,12 +40,6 @@ public:
 	/* Мутатори */
 	void setName(char const* n);
 	void setScore(int s) { score = s; }
-
-	// Деструктор
-	~Player();
-
-	// Операция за присвояване
-	Player& operator=(Player const& p);
 
 };
 

@@ -18,7 +18,9 @@ void anonymousPrint(Player p) {
 void testPlayer() {
 	Player p1("Гандалф Сивия", 45);
 	p1.print();
-	Player p2 = p1;
+	Player p2;
+	p2 = p1;
+	p2 = p2;
 	p2.print();
 	p2.setName("Гандалф Белия");
 	p1.print();

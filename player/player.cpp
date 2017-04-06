@@ -53,7 +53,11 @@ std::istream& operator>>(std::istream& i, Player& p) {
 
 
 Player& Player::operator=(Player const& p) {
-	setName(p.getName());
-	score = p.score;
+	if (this != &p) {
+	// !!! if (*this != p) {
+		// (*this).operator!=(p);
+		setName(p.getName());
+		score = p.score;
+	}
 	return *this;
 }
