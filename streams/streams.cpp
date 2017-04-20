@@ -5,10 +5,40 @@
  *      Author: trifon
  */
 
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 
-int main() {
+void logState(std::istream& is) {
+	std::clog << "Състояние на потока: " << is.rdstate() << std::endl;
+}
+
+int safeReadInt(std::istream& is = std::cin) {
+	int n;
+	logState(is);
+	is >> n;
+	logState(is);
+	while (!is) {
+		if (is.eof()) {
+			std::cerr << "Край на потока!" << std::endl;
+			return 0;
+		}
+		is.clear();
+		logState(is);
+		// Изчистване на лошия символ
+		is.get();
+		// пробваме да четем отново
+		is >> n;
+		logState(is);
+	}
+	return n;
+}
+
+void testSafeRead() {
+	std::cout << "Прочетено: " << safeReadInt() << std::endl;
+}
+
+void testInOut() {
 	char data[] = { 65, 66, 67, 68 };
 	unsigned int x = 68;
 	x <<= 8;
@@ -34,4 +64,13 @@ int main() {
 			(int)data[2] << ' ' << std::endl;
 }
 
+void testManipulator() {
+	std::cout << 42 << std::endl;
+	std::cout << std::showbase << std::hex << std::setw(10) << 42 << std::endl;
+}
 
+int main() {
+	// testInOut();
+	// testSafeRead();
+	testManipulator();
+}
