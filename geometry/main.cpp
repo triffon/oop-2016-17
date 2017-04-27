@@ -7,12 +7,12 @@
 
 #include <iostream>
 using namespace std;
-#include "point2d.h"
+#include "point2d.cpp"
 #include "point3d.h"
 
 void testPoint2D() {
-	Point2D p;
-	Point2D q(3, 4), r(7, 7);
+	Point2DD p;
+	Point2DD q(3, 4), r(7, 7);
 	cout << p.radius() << ' ' << q.radius() << endl;
 	cout << p.distance(q) << endl;
 	cout << q.distance(r) << endl;

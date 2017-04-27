@@ -8,11 +8,11 @@
 #ifndef POINT3D_H_
 #define POINT3D_H_
 
-#include "point2d.h"
+#include "point2d.cpp"
 
 class Point3D {
 private:
-	Point2D p; // проекция на точката в Oxy
+	Point2DD p; // проекция на точката в Oxy
 	double z;  // разстояние на точката до Oxy
 
 public:
@@ -23,7 +23,7 @@ public:
 	Point3D();
 
 	// конструктори с параметри
-	Point3D(Point2D const& p, double z);
+	Point3D(Point2DD const& p, double z);
 	Point3D(double x, double y, double z);
 
 	/** Селектори **/

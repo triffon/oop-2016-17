@@ -14,7 +14,7 @@ Point3D::Point3D() {
 	z = 0;
 }
 
-Point3D::Point3D(Point2D const& p, double z) {
+Point3D::Point3D(Point2DD const& p, double z) {
 	this->p = p;
 	setZ(z);
 }
@@ -26,7 +26,7 @@ Point3D::Point3D(double x, double y, double z) {
 }
 
 double Point3D::radius() const {
-	Point2D q(p.radius(), z);
+	Point2DD q(p.radius(), z);
 	return q.radius();
 // 	return Point2D(p.radius(), z).radius();
 }
