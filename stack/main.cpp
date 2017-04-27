@@ -8,11 +8,11 @@
 #include <iostream>
 #include "stack.h"
 #include "rstack.h"
-#include "lstack.h"
+#include "lstack.cpp"
 
 // typedef Stack MyStack;
 // typedef ResizingStack MyStack;
-typedef LinkedStack MyStack;
+typedef LinkedStack<int> MyStack;
 
 // s += x
 /*
@@ -100,20 +100,21 @@ void testBaseConvert() {
  */
 
 int calculateExpr(char const* s) {
-	MyStack stack;
+	LinkedStack<char> opStack;
+	LinkedStack<int>  dataStack;
 	while (*s) {
 		if (*s == '('); // Пропускаме
 
 		if (*s >= '0' && *s <= '9')
-			stack.push(*s - '0');
+			dataStack.push(*s - '0');
 		if (*s == '+' || *s == '-' || *s == '*' || *s == '/')
-			stack.push(*s);
+			opStack.push(*s);
 
 		if (*s == ')') {
 			// Трябва да сметнем!
-			int b = stack.pop();
-			char op = stack.pop();
-			int a = stack.pop();
+			int b = dataStack.pop();
+			char op = opStack.pop();
+			int a = dataStack.pop();
 			int r = 0;
 
 			switch (op) {
@@ -122,11 +123,11 @@ int calculateExpr(char const* s) {
 				case '*' : r = a * b;break;
 				case '/' : if (b != 0) r = a / b;
 			}
-			stack.push(r);
+			dataStack.push(r);
 		}
 		s++;
 	}
-	return stack.pop();
+	return dataStack.pop();
 }
 
 void testCalculateExpr() {
@@ -143,7 +144,7 @@ bool match(char open, char close) {
 }
 
 bool checkParentheses(char const* s) {
-	MyStack stack;
+	LinkedStack<char> stack;
 	while (*s) {
 
 		if (*s == '(' || *s == '[' || *s == '{')
@@ -181,8 +182,8 @@ void testCheckParentheses() {
 
 int main() {
 	testStack();
-	// testBaseConvert();
-	// testCalculateExpr();
-	// testCheckParentheses();
+	testBaseConvert();
+	testCalculateExpr();
+	testCheckParentheses();
 	return 0;
 }

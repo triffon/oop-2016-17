@@ -5,36 +5,92 @@
  *      Author: trifon
  */
 
+#ifndef LSTACK_CPP_
+#define LSTACK_CPP_
+
 #include <iostream>
-#include "lstack.h"
 
-LinkedStack::LinkedStack() : top(nullptr) {}
+template <typename T>
+struct StackElement {
+	T data;
+	StackElement* next;
+};
 
-bool LinkedStack::empty() const {
+template <typename T>
+class LinkedStack {
+private:
+	StackElement<T>* top;
+
+	void copy(StackElement<T>* toCopy);
+
+	void eraseStack();
+
+	void copyStack(LinkedStack const&);
+
+public:
+
+	// създаване на празен стек
+	LinkedStack();
+
+	// Конструктор за копиране
+	LinkedStack(LinkedStack const&);
+
+	// операция за присвояване
+	LinkedStack& operator=(LinkedStack const&);
+
+	// деструктор
+	~LinkedStack();
+
+	// проверка дали стек е празен
+	bool empty() const;
+
+	// включване на елемент
+	void push(T const& x);
+
+	// изключване на елемент
+	T pop();
+
+	// поглеждане на елемента на върха на стека
+	T peek() const;
+
+	LinkedStack& operator+=(T const& x) {
+		push(x);
+		return *this;
+	}
+};
+
+template <typename T>
+LinkedStack<T>::LinkedStack() : top(nullptr) {}
+
+template <typename T>
+bool LinkedStack<T>::empty() const {
 	return top == nullptr;
 }
 
-void LinkedStack::push(int x) {
-	StackElement* p = new StackElement;
+template <typename T>
+void LinkedStack<T>::push(T const& x) {
+	StackElement<T>* p = new StackElement<T>;
 	p->data = x;
 	p->next = top;
 	top = p;
 }
 
-int LinkedStack::pop() {
+template <typename T>
+T LinkedStack<T>::pop() {
 	if (empty()) {
 		// Стекът е празен
 		std::cerr << "Опит за изключване на елемент от празен стек!\n";
 		return 0;
 	}
-	StackElement* p = top;
+	StackElement<T>* p = top;
 	top = top->next;
-	int x = p->data;
+	T x = p->data;
 	delete p;
 	return x;
 }
 
-int LinkedStack::peek() const {
+template <typename T>
+T LinkedStack<T>::peek() const {
 	if (empty()) {
 		// Стекът е празен
 		std::cerr << "Опит за достъп до върха на празен стек!\n";
@@ -43,19 +99,21 @@ int LinkedStack::peek() const {
 	return top->data;
 }
 
-void LinkedStack::eraseStack() {
+template <typename T>
+void LinkedStack<T>::eraseStack() {
 	// !!! delete top;
 	// !!! delete[] top;
 	while (!empty())
 		pop();
 }
 
-LinkedStack::~LinkedStack() {
+template <typename T>
+LinkedStack<T>::~LinkedStack() {
 	eraseStack();
 }
 
 /*
-LinkedStack::LinkedStack(LinkedStack const& ls) :
+LinkedStack<T>::LinkedStack(LinkedStack const& ls) :
 	top(nullptr) {
 
 	// ако ls е празен, няма какво да правим повече
@@ -88,7 +146,8 @@ LinkedStack::LinkedStack(LinkedStack const& ls) :
 
 */
 
-void LinkedStack::copy(StackElement* toCopy) {
+template <typename T>
+void LinkedStack<T>::copy(StackElement<T>* toCopy) {
 	if (toCopy == nullptr)
 		return;
 	// сигурен съм, че има поне един елемент
@@ -98,17 +157,20 @@ void LinkedStack::copy(StackElement* toCopy) {
 	push(toCopy->data);
 }
 
-void LinkedStack::copyStack(LinkedStack const& ls) {
+template <typename T>
+void LinkedStack<T>::copyStack(LinkedStack const& ls) {
 	top = nullptr;
 	copy(ls.top);
 }
 
-LinkedStack::LinkedStack(LinkedStack const& ls) {
+template <typename T>
+LinkedStack<T>::LinkedStack(LinkedStack const& ls) {
 	copyStack(ls);
 }
 
 /*
-LinkedStack::LinkedStack(LinkedStack const& ls) :
+ * template <typename T>
+LinkedStack<T>::LinkedStack(LinkedStack const& ls) :
 		top(nullptr) {
 	for(StackElement* toCopy = ls.top;
 			toCopy != nullptr;
@@ -118,10 +180,13 @@ LinkedStack::LinkedStack(LinkedStack const& ls) :
 }
 */
 
-LinkedStack& LinkedStack::operator=(LinkedStack const& ls) {
+template <typename T>
+LinkedStack<T>& LinkedStack<T>::operator=(LinkedStack const& ls) {
 	if (this != &ls) {
 		eraseStack();
 		copyStack(ls);
 	}
 	return *this;
 }
+
+#endif /* LSTACK_CPP_ */
