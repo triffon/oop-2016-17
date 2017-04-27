@@ -160,4 +160,10 @@ void Point2D<T>::read() {
 	std::cin >> c;
 }
 
+template <typename T>
+void Point2D<T>::rotate(Point2D const& origin, double angle) {
+	// !!!
+	origin += angle;
+}
+
 #endif
