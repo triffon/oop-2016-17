@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "../rational/rational.h"
-#include "../geometry/point2d.h"
+#include "../geometry/point2d.cpp"
 
 template <typename T>
 void swap(T& a, T& b) {
@@ -27,7 +27,8 @@ void printArray(T* a, int n) {
 	std::cout << std::endl;
 }
 
-void printArray(Point2D* a, int n) {
+template <typename T>
+void printArray(Point2D<T>* a, int n) {
 	for(int i = 0; i < n; i++) {
 		a[i].print();
 		std::cout << ' ';
@@ -61,10 +62,10 @@ void testTemplates() {
 	printArray(b, 4);
 	reverse(b, 4);
 	printArray(b, 4);
-	Point2D c[] = { Point2D(1, 1),
-			Point2D(2, 2),
-			Point2D(3, 3),
-			Point2D(4, 4) };
+	Point2D<int> c[] = { Point2D<int>(1, 1),
+			Point2D<int>(2, 2),
+			Point2D<int>(3, 3),
+			Point2D<int>(4, 4) };
 	/// !!! printArray<Point2D>(c, 4);
 	printArray(c, 4);
 	std::cout << countOccurrences(a, 4, Rational(2, 3))
@@ -75,6 +76,14 @@ void testTemplates() {
 	std::cout << countOccurrences(c, 4, Point2D(2, 3))
 			  << std::endl;
 			  */
+	Point2D<Rational> d[4];
+	for(int i = 0; i < 4; i++) {
+		d[i].setX(a[i]);
+		d[i].setY(reciprocal(a[i]));
+	}
+	printArray(d, 4);
+	// !!! std::cout << d[0].distance(d[1]) << std::endl;
+	// !!! template <typename T> Point2D<T> p;
 
 }
 
