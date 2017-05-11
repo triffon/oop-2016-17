@@ -9,6 +9,7 @@
 #include <cstring>
 #include "player.h"
 #include "hero.h"
+#include "superhero.h"
 
 void anonymousPrint(Player p) {
 	std::cout << p;
@@ -85,10 +86,48 @@ void testInheritance() {
 	// Hero& h3 = *(Hero*)p2;
 	h3.print();std::cout << std::endl;
 }
+
+void nl() {
+	std::cout << std::endl;
+}
+
+void testBattle() {
+	Player catniss("Кетнис Евърдийн", 50);
+	Hero gandalf("Гандалф Сивия", 45, 3);
+	SuperHero superman("Супермен", 10, 2, "летене");
+	catniss.print();nl();
+	gandalf.print();nl();
+	superman.print();nl();
+	superman.becomeSuperHero();
+	superman.print();nl();
+
+	Hero gandalfw; //= gandalf;
+	gandalfw = gandalf;
+	gandalfw.setName("Гандалф Белия");
+	gandalf.print();nl();
+	gandalfw.print();nl();
+
+	SuperHero superwoman;// = superman;
+	superwoman = superman;
+	superwoman.setName("Супержена");
+	superwoman.print();nl();
+	superman.print();nl();
+}
+
+/*
+class ChessPlayer : public Player {
+private:
+	int elo;
+};
+*/
+
 int main() {
 	// testPlayer();
 	// testDestructor();
-	testInheritance();
+	// testInheritance();
+	testBattle();
+
+	// ChessPlayer cp;
 	return 0;
 }
 
