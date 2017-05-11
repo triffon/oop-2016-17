@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstring>
 #include "player.h"
+#include "hero.h"
 
 void anonymousPrint(Player p) {
 	std::cout << p;
@@ -20,7 +21,7 @@ void testPlayer() {
 	p1.print();
 	Player p2;
 	p2 = p1;
-	p2 = p2;
+	// !!! p2 = p2;
 	p2.print();
 	p2.setName("Гандалф Белия");
 	p1.print();
@@ -66,9 +67,28 @@ void testDestructor() {
 			delete pa[i];
 }
 
+void testInheritance() {
+	Player p("Гандалф Сивия", 45);
+	Hero h("Кетнис Евърдийн", 50, 3);
+	p.print();std::cout << std::endl;
+	h.print();std::cout << std::endl;
+	std::cout << p;
+	std::cout << h;
+	Player* p2 = &h;
+	p2->print();std::cout << std::endl;
+	h.setScore(55);
+	p2->print();std::cout << std::endl;
+	// !!!
+	Hero* h2 = (Hero*)&p;
+	h2->print();std::cout << std::endl;
+	Hero& h3 = (Hero&)*p2;
+	// Hero& h3 = *(Hero*)p2;
+	h3.print();std::cout << std::endl;
+}
 int main() {
-	testPlayer();
+	// testPlayer();
 	// testDestructor();
+	testInheritance();
 	return 0;
 }
 

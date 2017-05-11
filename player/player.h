@@ -11,7 +11,7 @@
 #include <iostream>
 
 class Player {
-private:
+protected:
 
 	char* name;		// Име на играча
 	int score;		// Резултат в точки
@@ -35,7 +35,7 @@ public:
 	int getScore() const { return score; }
 
 	// Извеждане
-	void print() const;
+	void print(std::ostream& os = std::cout) const;
 
 	/* Мутатори */
 	void setName(char const* n);
