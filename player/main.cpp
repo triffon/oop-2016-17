@@ -91,6 +91,28 @@ void nl() {
 	std::cout << std::endl;
 }
 
+Hero* battle(Hero& h1, Hero& h2) {
+	if (h1.getLevel() > h2.getLevel())
+		return &h1;
+	if (h1.getLevel() < h2.getLevel())
+		return &h2;
+	return nullptr;
+}
+
+void fight(Hero& h1, Hero& h2, int prize) {
+	std::cout << "Битка между:\n";
+	h1.print();nl();
+	std::cout << "И\n";
+	h2.print();nl();
+	Hero* winner = battle(h1, h2);
+	if (winner != NULL) {
+		winner->setScore(winner->getScore() + prize);
+		std::cout << "Победител е:\n";
+		winner->print();
+	} else
+		std::cout << "Няма победител!\n";
+}
+
 void testBattle() {
 	Player catniss("Кетнис Евърдийн", 50);
 	Hero gandalf("Гандалф Сивия", 45, 3);
@@ -112,6 +134,11 @@ void testBattle() {
 	superwoman.setName("Супержена");
 	superwoman.print();nl();
 	superman.print();nl();
+
+	superman.stopBeingSuperHero();
+	fight(gandalf, superman, 10);
+	superman.becomeSuperHero();
+	fight(gandalf, superman, 20);
 }
 
 /*
