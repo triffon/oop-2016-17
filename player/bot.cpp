@@ -17,10 +17,14 @@ Bot::Bot(char const* _name,
 		{}
 
 
-void Bot::print(std::ostream& os) const {
-	Player::print();
-	os << ", който е ";
-	AI::print();
+void Bot::printDirect(std::ostream& os) const {
+	AI::print(os);
 	os << " и е бот с трудност " << getDifficulty();
+}
+
+void Bot::print(std::ostream& os) const {
+	Player::print(os);
+	os << ", който е ";
+	printDirect();
 }
 

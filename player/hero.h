@@ -28,6 +28,7 @@ public:
 	void setLevel(int _level) { level = _level; }
 
 	// Извеждане
+	void printDirect(std::ostream& os = std::cout) const;
 	void print(std::ostream& os = std::cout) const;
 
 };

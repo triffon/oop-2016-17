@@ -18,9 +18,14 @@ Boss::Boss(char const* _name, int _score,
 		 damage(_damage) {}
 
 void Boss::print(std::ostream& os) const {
-	Hero::print();
+	Player::print(os);
+	printDirect(os);
+}
+
+void Boss::printDirect(std::ostream& os) const {
+	Hero::printDirect(os);
 	os << ", който е ";
-	Bot::print();
+	Bot::printDirect(os);
 	os << " и нанася поражения " << getDamage()
 		<< " точки";
 }

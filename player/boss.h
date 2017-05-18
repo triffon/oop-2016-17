@@ -11,7 +11,7 @@
 #include "hero.h"
 #include "bot.h"
 
-class Boss : public Hero, public Bot {
+class Boss : /* virtual public Player, */ public Hero, public Bot {
 private:
 	int damage;
 
@@ -25,6 +25,7 @@ public:
 
 	int getDamage() const { return damage; }
 
+	void printDirect(std::ostream& os = std::cout) const;
 	void print(std::ostream& os = std::cout) const;
 
 };

@@ -27,6 +27,7 @@ public:
 
 	int getDifficulty() const { return difficulty; }
 
+	void printDirect(std::ostream& = std::cout) const;
 	void print(std::ostream& = std::cout) const;
 };
 
