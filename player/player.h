@@ -35,7 +35,8 @@ public:
 	int getScore() const { return score; }
 
 	// Извеждане
-	void print(std::ostream& os = std::cout) const;
+	virtual void print(std::ostream& os = std::cout) const;
+	void prettyPrint() const;
 
 	/* Мутатори */
 	void setName(char const* n);

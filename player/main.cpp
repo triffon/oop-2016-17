@@ -162,7 +162,7 @@ void testMultipleInheritance() {
 	// ((Player const&)bot).print();
 	// bot.Player::print();
 
-	Player p = bot;
+	Player& p = bot;
 	p.print();nl();
 
 	AI* pai = &bot;
@@ -177,7 +177,17 @@ void testMultipleInheritance() {
 	// !!! (Player&)boss.setName("Sauron");
 	((Player&)(Bot&)boss).setName("Sauron");
 	boss.print();nl();
+	boss.prettyPrint();
 
+	Bot* b = &boss;
+	b->print();nl();
+
+	Hero gandalf("Гандалф Сивия", 45, 3);
+	// !!! gandalf.print();
+	Player* g = &gandalf;
+	g->print();
+	Hero* h = &gandalf;
+	// !!! h->print();
 }
 
 int main() {

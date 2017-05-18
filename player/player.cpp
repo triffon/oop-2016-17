@@ -61,3 +61,10 @@ Player& Player::operator=(Player const& p) {
 	}
 	return *this;
 }
+
+
+void Player::prettyPrint() const {
+	std::cout << "---------------------------\n";
+	print();
+	std::cout << "\n---------------------------\n";
+}
