@@ -12,8 +12,9 @@ Boss::Boss(char const* _name, int _score,
 		 char const* _algo, double _threshold,
 		 int _difficulty,
 		 int _damage) :
-		 Hero(_name, _score, _level),
-		 Bot(_name, _score, _algo, _threshold, _difficulty),
+		 Hero("", 0, _level),
+		 Bot("", 0, _algo, _threshold, _difficulty),
+		 Player(_name, _score),
 		 damage(_damage) {}
 
 void Boss::print(std::ostream& os) const {
