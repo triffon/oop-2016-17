@@ -10,6 +10,7 @@
 #include "player.h"
 #include "hero.h"
 #include "superhero.h"
+#include "ai.h"
 
 void anonymousPrint(Player p) {
 	std::cout << p;
@@ -150,13 +151,19 @@ private:
 };
 */
 
+void testMultipleInheritance() {
+	AI ai("минимакс", 5.3);
+	ai.print();nl();
+}
+
 int main() {
 	// testPlayer();
 	// testDestructor();
 	// testInheritance();
-	testBattle();
+	// testBattle();
 
 	// ChessPlayer cp;
+	testMultipleInheritance();
 	return 0;
 }
 
