@@ -94,8 +94,7 @@ void nl() {
 	std::cout << std::endl;
 }
 
-template <typename SomeHero1, typename SomeHero2>
-Hero* battle(SomeHero1& h1, SomeHero2& h2) {
+Hero* battle(Hero& h1, Hero& h2) {
 	if (h1.getLevel() > h2.getLevel())
 		return &h1;
 	if (h1.getLevel() < h2.getLevel())
@@ -103,8 +102,7 @@ Hero* battle(SomeHero1& h1, SomeHero2& h2) {
 	return nullptr;
 }
 
-template <typename SomeHero1, typename SomeHero2>
-void fight(SomeHero1& h1, SomeHero2& h2, int prize) {
+void fight(Hero& h1, Hero& h2, int prize) {
 	std::cout << "Битка между:\n";
 	h1.print();nl();
 	std::cout << "И\n";
@@ -194,10 +192,10 @@ int main() {
 	// testPlayer();
 	// testDestructor();
 	// testInheritance();
-	// testBattle();
+	testBattle();
 
 	// ChessPlayer cp;
-	testMultipleInheritance();
+	// testMultipleInheritance();
 	return 0;
 }
 

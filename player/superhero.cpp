@@ -10,7 +10,8 @@
 
 SuperHero::SuperHero(char const* _name, int _score,
 				int _level, char const* _power) :
-	Hero(_name, _score, _level), super(false) {
+	Player(_name, _score),
+	Hero("", 0, _level), super(false) {
 	setPower(_power);
 }
 

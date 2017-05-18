@@ -22,13 +22,15 @@ public:
 		int _l = 1);
 
 	// Селектор
-	int getLevel() const { return level; }
+	virtual int getLevel() const { return level; }
 
 	// Мутатор
 	void setLevel(int _level) { level = _level; }
 
 	// Извеждане
 	void printDirect(std::ostream& os = std::cout) const;
+// private:
+
 	void print(std::ostream& os = std::cout) const;
 
 };
