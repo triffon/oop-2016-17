@@ -12,6 +12,7 @@
 #include "superhero.h"
 #include "ai.h"
 #include "bot.h"
+#include "boss.h"
 
 void anonymousPrint(Player p) {
 	std::cout << p;
@@ -166,6 +167,17 @@ void testMultipleInheritance() {
 
 	AI* pai = &bot;
 	pai->print();nl();
+
+	Boss boss("Саурон", 50, 20, "Тъмни сили", 2.8,
+			  100, 1000);
+	boss.print();nl();
+	// !!!! boss.setName("Sauron");
+	// !!!! boss.Player::setName("Sauron");
+	boss.Bot::setName("Sauron");
+	// !!! (Player&)boss.setName("Sauron");
+	((Player&)(Bot&)boss).setName("Sauron");
+	boss.print();nl();
+
 }
 
 int main() {
