@@ -10,7 +10,7 @@
 
 #include "player.h"
 
-class Hero : public Player {
+class Hero : virtual public Player {
 
 private:
 	int level;

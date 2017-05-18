@@ -83,11 +83,11 @@ void testInheritance() {
 	h.setScore(55);
 	p2->print();std::cout << std::endl;
 	// !!!
-	Hero* h2 = (Hero*)&p;
-	h2->print();std::cout << std::endl;
-	Hero& h3 = (Hero&)*p2;
+	// !!! Hero* h2 = (Hero*)&p;
+	//h2->print();std::cout << std::endl;
+	// !!! Hero& h3 = (Hero&)*p2;
 	// Hero& h3 = *(Hero*)p2;
-	h3.print();std::cout << std::endl;
+	//h3.print();std::cout << std::endl;
 }
 
 void nl() {
