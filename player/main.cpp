@@ -11,6 +11,7 @@
 #include "hero.h"
 #include "superhero.h"
 #include "ai.h"
+#include "bot.h"
 
 void anonymousPrint(Player p) {
 	std::cout << p;
@@ -154,6 +155,17 @@ private:
 void testMultipleInheritance() {
 	AI ai("минимакс", 5.3);
 	ai.print();nl();
+
+	Bot bot("Deep Thought", 10, "минимакс", 5.3, 20);
+	bot.print();nl();
+	// ((Player const&)bot).print();
+	// bot.Player::print();
+
+	Player p = bot;
+	p.print();nl();
+
+	AI* pai = &bot;
+	pai->print();nl();
 }
 
 int main() {
