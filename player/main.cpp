@@ -192,10 +192,10 @@ int main() {
 	// testPlayer();
 	// testDestructor();
 	// testInheritance();
-	testBattle();
+	// testBattle();
 
 	// ChessPlayer cp;
-	// testMultipleInheritance();
+	testMultipleInheritance();
 	return 0;
 }
 

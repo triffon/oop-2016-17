@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <typeinfo>
 #include "player.h"
 
 Player::Player(char const* n, int s) : name(nullptr), score(s) {
@@ -64,7 +65,7 @@ Player& Player::operator=(Player const& p) {
 
 
 void Player::prettyPrint() const {
-	std::cout << "---------------------------\n";
+	std::cout << "--------- " << typeid(*this).name() << " --------\n";
 	print();
 	std::cout << "\n---------------------------\n";
 }
