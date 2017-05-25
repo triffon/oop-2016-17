@@ -188,6 +188,13 @@ void testMultipleInheritance() {
 	// !!! h->print();
 }
 
+void testDestructors() {
+	while (true) {
+		AI* p = new Boss;
+		delete p;
+	}
+}
+
 int main() {
 	// testPlayer();
 	// testDestructor();
@@ -195,7 +202,8 @@ int main() {
 	// testBattle();
 
 	// ChessPlayer cp;
-	testMultipleInheritance();
+	// testMultipleInheritance();
+	testDestructors();
 	return 0;
 }
 

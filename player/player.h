@@ -28,7 +28,7 @@ public:
 	Player& operator=(Player const& p);
 
 	// Деструктор
-	~Player();
+	virtual ~Player();
 
 	/* Селектори */
 	char const* getName() const { return name; }

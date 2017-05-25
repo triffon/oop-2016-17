@@ -28,14 +28,14 @@ public:
 
 	AI& operator=(AI const&);
 
-	~AI();
+	virtual ~AI();
 
 	// Селектори
 	char const* getAlgorithm() const { return algorithm; }
 	double getThreshold() const { return threshold; }
 
 	// Извеждане
-	void print(std::ostream& = std::cout) const;
+	virtual void print(std::ostream& = std::cout) const;
 };
 
 
