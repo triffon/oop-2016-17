@@ -8,11 +8,13 @@
 #ifndef STACK_H_
 #define STACK_H_
 
+#include "abstract_stack.h"
+
 // typedef int Data;
 
 const int MAX = 100;
 
-class Stack {
+class Stack : public AbstractStack<int> {
 private:
 	int a[MAX];
 	int top;	// Индекс на последния елемент в стека
@@ -28,7 +30,7 @@ public:
 	bool empty() const;
 
 	// включване на елемент
-	void push(int x);
+	void push(int const& x);
 
 	// изключване на елемент
 	int pop();

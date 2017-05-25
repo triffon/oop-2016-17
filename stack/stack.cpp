@@ -18,7 +18,7 @@ bool Stack::full() const {
 	return top == MAX - 1;
 }
 
-void Stack::push(int x) {
+void Stack::push(int const& x) {
 	if (full()) {
 		std::cerr << "Опит за включване в пълен стек!\n";
 	} else

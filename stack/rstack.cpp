@@ -20,7 +20,7 @@ bool ResizingStack::full() const {
 	return top == capacity - 1;
 }
 
-void ResizingStack::push(int x) {
+void ResizingStack::push(int const& x) {
 	if (full()) {
 		resize();
 	}

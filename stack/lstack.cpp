@@ -9,6 +9,7 @@
 #define LSTACK_CPP_
 
 #include <iostream>
+#include "abstract_stack.h"
 
 template <typename T>
 struct StackElement {
@@ -17,7 +18,7 @@ struct StackElement {
 };
 
 template <typename T>
-class LinkedStack {
+class LinkedStack : public AbstractStack<T> {
 private:
 	StackElement<T>* top;
 
