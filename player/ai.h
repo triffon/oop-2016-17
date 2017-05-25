@@ -9,8 +9,9 @@
 #define AI_H_
 
 #include <iostream>
+#include "printable.h"
 
-class AI {
+class AI : virtual public Printable {
 private:
 
 	char* algorithm;

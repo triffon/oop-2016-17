@@ -195,6 +195,37 @@ void testDestructors() {
 	}
 }
 
+void testPrintable() {
+	Printable* p = new Boss("Саурон", 50, 20, "Тъмни сили", 2.8,
+			  100, 1000);
+	p->print();nl();
+	p = new AI("минимакс", 5.3);
+	p->print();nl();
+
+	Printable* printables[] = {
+			new Boss("Саурон", 50, 20, "Тъмни сили", 2.8,
+						  100, 1000),
+			new AI("минимакс", 5.3),
+			new Hero("Гандалф Сивия", 45, 3),
+			new SuperHero("Супермен", 10, 2, "летене"),
+			new Bot("Deep Thought", 10, "минимакс", 5.3, 20)
+	};
+
+	/*
+	Printable& printables[] = {
+			Boss(...),
+			AI(...),
+			Hero(...),
+			....
+	};
+	*/
+	for(int i = 0; i < 5; i++) {
+		printables[i]->print();nl();
+	}
+	for(int i = 0; i < 5; i++)
+		delete printables[i];
+}
+
 int main() {
 	// testPlayer();
 	// testDestructor();
@@ -203,7 +234,8 @@ int main() {
 
 	// ChessPlayer cp;
 	// testMultipleInheritance();
-	testDestructors();
+	// testDestructors();
+	testPrintable();
 	return 0;
 }
 

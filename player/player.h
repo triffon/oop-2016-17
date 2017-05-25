@@ -9,8 +9,9 @@
 #define PLAYER_H_
 
 #include <iostream>
+#include "printable.h"
 
-class Player {
+class Player : virtual public Printable {
 protected:
 
 	char* name;		// Име на играча
