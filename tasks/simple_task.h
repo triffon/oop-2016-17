@@ -27,6 +27,9 @@ public:
 
 	virtual void print(std::ostream& os = std::cout) const;
 
+	virtual Cloneable* clone() const {
+		return new SimpleTask(*this);
+	}
 };
 
 

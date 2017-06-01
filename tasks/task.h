@@ -9,8 +9,9 @@
 #define TASK_H_
 
 #include "printable.h"
+#include "cloneable.h"
 
-class Task : public Printable {
+class Task : public Printable, public Cloneable {
 private:
 	char* name;
 

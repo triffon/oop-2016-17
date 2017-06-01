@@ -12,10 +12,13 @@
 
 class RepeatTask : public SimpleTask {
 private:
-	Task* baseTask;
+	Task const* baseTask;
+	Task* currentTask;
+
+	void reset();
 
 public:
-	RepeatTask(char const* _name, Task* _baseTask,
+	RepeatTask(char const* _name, Task const* _baseTask,
 				unsigned _repetitions);
 
 	unsigned getRepetitions() const {
@@ -33,6 +36,10 @@ public:
 	virtual unsigned work(unsigned effort = 1);
 
 	virtual void print(std::ostream& os = std::cout) const;
+
+	virtual Cloneable* clone() const {
+		return new RepeatTask(*this);
+	}
 };
 
 
