@@ -11,7 +11,7 @@
 #include "printable.h"
 #include "cloneable.h"
 
-class Task : public Printable, public Cloneable {
+class Task : public Printable, public Cloneable<Task> {
 private:
 	char* name;
 

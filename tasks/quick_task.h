@@ -26,7 +26,7 @@ public:
 
 	virtual void print(std::ostream& os = std::cout) const;
 
-	virtual Cloneable* clone() const {
+	virtual Task* clone() const {
 		return new QuickTask(*this);
 	}
 };

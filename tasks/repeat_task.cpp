@@ -41,5 +41,5 @@ void RepeatTask::print(std::ostream& os) const {
 
 void RepeatTask::reset() {
 	delete currentTask;
-	currentTask = (Task*)baseTask->clone();
+	currentTask = baseTask->clone();
 }
