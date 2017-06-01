@@ -30,6 +30,7 @@ void testWork(Task& t) {
 		std::cout << "Работим " << e << " единици\n";
 		std::cout << "Останаха ни " << t.work(e) << " единици\n";
 	} while (!t.isFinished());
+	t.print();nl();
 }
 
 void testTasks() {
@@ -45,6 +46,14 @@ void testTasks() {
 				  15);
 	testWork(rt);
 
+	RepeatTask fmi("бакалавър",
+			new RepeatTask("семестър",
+					new RepeatTask("курс",
+							new SimpleTask("лекция", 3),
+							15),
+					4),
+			8);
+	testWork(fmi);
 }
 
 int main() {

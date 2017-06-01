@@ -26,6 +26,20 @@ unsigned RepeatTask::getProgress() const {
 }
 
 unsigned RepeatTask::work(unsigned effort) {
+	// фаза 1: завършване на текущото повторение
+	effort = currentTask->work(effort);
+	if (currentTask->isFinished()) {
+		// фаза 2: изпълняване на някакъв брой повторения
+		reset();
+		unsigned repeatEffort = effort / baseTask->getSize();
+		unsigned leftRepeatEffort = SimpleTask::work(repeatEffort + 1);
+		unsigned spentRepeatEffort = repeatEffort - leftRepeatEffort;
+		effort -= spentRepeatEffort * baseTask->getSize();
+		if (!SimpleTask::isFinished()) {
+			// Фаза 3: започване на нова задача
+			effort = currentTask->work(effort);
+		}
+	}
 	return effort;
 }
 
