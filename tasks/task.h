@@ -30,6 +30,10 @@ public:
 		return (double)getProgress() / getSize();
 	}
 
+	bool isFinished() const {
+		return getProgress() == getSize();
+	}
+
 	char const* getName() const { return name; }
 
 	virtual unsigned getSize() const = 0;
