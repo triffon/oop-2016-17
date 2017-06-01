@@ -10,10 +10,8 @@
 RepeatTask::RepeatTask(char const* _name,
 					   Task* _baseTask,
 					   unsigned _repetitions) :
-					   Task(_name),
-					   baseTask(_baseTask),
-					   repetitions(_repetitions),
-					   repeatProgress(0) {}
+					   SimpleTask(_name, _repetitions),
+					   baseTask(_baseTask) {}
 
 unsigned RepeatTask::getSize() const {
 	return baseTask->getSize() * getRepetitions();

@@ -8,24 +8,22 @@
 #ifndef REPEAT_TASK_H_
 #define REPEAT_TASK_H_
 
-#include "task.h"
+#include "simple_task.h"
 
-class RepeatTask : public Task {
+class RepeatTask : public SimpleTask {
 private:
 	Task* baseTask;
-	unsigned repetitions;
-	unsigned repeatProgress;
 
 public:
 	RepeatTask(char const* _name, Task* _baseTask,
 				unsigned _repetitions);
 
 	unsigned getRepetitions() const {
-		return repetitions;
+		return SimpleTask::getSize();
 	}
 
 	unsigned getRepeatProgress() const {
-		return repeatProgress;
+		return SimpleTask::getProgress();
 	}
 
 	virtual unsigned getSize() const;
