@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "quick_task.h"
+#include "simple_task.h"
 
 void nl() {
 	std::cout << std::endl;
@@ -22,6 +23,10 @@ void printWork(Task& t, int e = 1) {
 void testTasks() {
 	QuickTask qt("малко контролно");
 	printWork(qt, 5);
+
+	SimpleTask st("лекция по ООП", 3);
+	printWork(st, 2);
+	printWork(st, 2);
 }
 
 int main() {
