@@ -57,7 +57,9 @@ public:
 
 	virtual bool serialize(std::ostream&) const;
 
-	virtual bool deserialize(std::istream&) {}
+	virtual bool deserialize(std::istream&) {
+		return false;
+	}
 };
 
 #endif /* TASK_H_ */

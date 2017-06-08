@@ -78,6 +78,9 @@ void testComplexTask() {
 void testSerialize() {
 	QuickTask qt("нанасяне на оценки");
 	qt.serialize(std::cout);
+
+	SimpleTask st("изпит за ниво 6", 2);
+	st.serialize(std::cout);
 }
 
 int main() {

@@ -10,10 +10,13 @@
 
 #include "task.h"
 
+const char KEY_FINISHED[] = "finished";
+
 class QuickTask : public Task {
 private:
 	bool finished;
 
+	void serializeFinished(std::ostream&) const;
 public:
 
 	QuickTask(char const* _name = "<бърза задача>");
@@ -25,6 +28,8 @@ public:
 	virtual unsigned work(unsigned effort = 1);
 
 	virtual void print(std::ostream& os = std::cout) const;
+
+	virtual bool serialize(std::ostream&) const;
 
 	virtual Task* clone() const {
 		return new QuickTask(*this);

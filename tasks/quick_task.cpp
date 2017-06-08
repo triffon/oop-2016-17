@@ -26,3 +26,16 @@ void QuickTask::print(std::ostream& os) const {
 		os << "НЕ ";
 	os << "е завършена";
 }
+
+void QuickTask::serializeFinished(std::ostream& os) const {
+	serializeKeyIntValue(os, KEY_FINISHED, finished);
+}
+
+bool QuickTask::serialize(std::ostream& os) const {
+	startSerialize(os);
+	serializeName(os);
+	serializeFinished(os);
+	finishSerialize(os);
+	return os.good();
+}
+
