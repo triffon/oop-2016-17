@@ -17,7 +17,8 @@ private:
 	// Инварианта: 0 <= progress <= size
 
 public:
-	SimpleTask(char const* _name, unsigned _size);
+	SimpleTask(char const* _name = "<проста задача>",
+			   unsigned _size = 1);
 
 	virtual unsigned getSize() const { return size; }
 

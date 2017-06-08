@@ -16,7 +16,7 @@ private:
 
 public:
 
-	QuickTask(char const* _name);
+	QuickTask(char const* _name = "<бърза задача>");
 
 	virtual unsigned getSize() const { return 1; }
 

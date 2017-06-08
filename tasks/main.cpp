@@ -42,14 +42,14 @@ void testTasks() {
 	printWork(st, 2);
 
 	RepeatTask rt("курс ООП",
-				  new SimpleTask("лекция по ООП", 3),
+				  SimpleTask("лекция по ООП", 3),
 				  15);
 	testWork(rt);
 
 	RepeatTask fmi("бакалавър",
-			new RepeatTask("семестър",
-					new RepeatTask("курс",
-							new SimpleTask("лекция", 3),
+			RepeatTask("семестър",
+					RepeatTask("курс",
+							SimpleTask("лекция", 3),
 							15),
 					4),
 			8);

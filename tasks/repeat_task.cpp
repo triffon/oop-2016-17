@@ -8,11 +8,11 @@
 #include "repeat_task.h"
 
 RepeatTask::RepeatTask(char const* _name,
-					   Task const* _baseTask,
+					   Task const& _baseTask,
 					   unsigned _repetitions) :
 					   SimpleTask(_name, _repetitions),
-					   baseTask(_baseTask),
 					   currentTask(nullptr) {
+	baseTask = _baseTask.clone();
 	reset();
 }
 
@@ -56,4 +56,32 @@ void RepeatTask::print(std::ostream& os) const {
 void RepeatTask::reset() {
 	delete currentTask;
 	currentTask = baseTask->clone();
+}
+
+void RepeatTask::copy(RepeatTask const& rt) {
+	baseTask = rt.baseTask->clone();
+	currentTask = rt.currentTask->clone();
+}
+
+void RepeatTask::clean() {
+	delete baseTask;
+	delete currentTask;
+}
+
+RepeatTask::RepeatTask(RepeatTask const& rt) :
+				SimpleTask(rt) {
+	copy(rt);
+}
+
+RepeatTask& RepeatTask::operator=(RepeatTask const& rt) {
+	if (this != &rt) {
+		SimpleTask::operator=(rt);
+		clean();
+		copy(rt);
+	}
+	return *this;
+}
+
+RepeatTask::~RepeatTask() {
+	clean();
 }

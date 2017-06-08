@@ -17,9 +17,19 @@ private:
 
 	void reset();
 
+	void copy(RepeatTask const&);
+	void clean();
+
 public:
-	RepeatTask(char const* _name, Task const* _baseTask,
-				unsigned _repetitions);
+	RepeatTask(char const* _name = "<повтаряема задача>",
+			   Task const& _baseTask = SimpleTask(),
+			   unsigned _repetitions = 1);
+
+	RepeatTask(RepeatTask const&);
+
+	RepeatTask& operator=(RepeatTask const&);
+
+	virtual ~RepeatTask();
 
 	unsigned getRepetitions() const {
 		return SimpleTask::getSize();
