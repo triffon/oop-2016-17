@@ -73,3 +73,24 @@ void ComplexTask::clean() {
 	while(!empty())
 		delete pop();
 }
+
+void ComplexTask::serializeSubTasks(std::ostream& os) const {
+	serializeKey(os, KEY_SUBTASKS);
+	os << "[\n";
+	LinkedStack<Task*> copy = *this;
+	while (!copy.empty()) {
+		copy.pop()->serialize(os);
+		os << ",\n";
+	}
+	os << "]\n";
+}
+
+bool ComplexTask::serialize(std::ostream& os) const {
+	startSerialize(os);
+	serializeName(os);
+	serializeSize(os);
+	serializeProgress(os);
+	serializeSubTasks(os);
+	finishSerialize(os);
+	return os.good();
+}

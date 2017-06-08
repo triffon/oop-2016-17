@@ -11,11 +11,15 @@
 #include "simple_task.h"
 #include "../stack/lstack.cpp"
 
+char const KEY_SUBTASKS[] = "subtasks";
+
 class ComplexTask : public SimpleTask,
 					private LinkedStack<Task*> {
 private:
 	void copy(ComplexTask const&);
 	void clean();
+
+	void serializeSubTasks(std::ostream& os) const;
 
 public:
 	ComplexTask(char const* _name = "<сложна задача>");
@@ -29,6 +33,8 @@ public:
 	virtual unsigned work(unsigned effort = 1);
 
 	virtual void print(std::ostream& os = std::cout) const;
+
+	virtual bool serialize(std::ostream&) const;
 
 	virtual Task* clone() const {
 		return new ComplexTask(*this);

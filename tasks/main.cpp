@@ -72,6 +72,8 @@ void testComplexTask() {
 
 	oop.print();
 
+	oop.serialize(std::cout);
+
 	testWork(oop);
 }
 
@@ -90,8 +92,8 @@ void testSerialize() {
 
 int main() {
 	// testTasks();
-	// testComplexTask();
-	testSerialize();
+	testComplexTask();
+	// testSerialize();
 	return 0;
 }
 
