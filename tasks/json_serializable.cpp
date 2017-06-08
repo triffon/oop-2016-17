@@ -9,6 +9,7 @@
 
 void JSONSerializable::startSerialize(std::ostream& os) const {
 	os << "{\n";
+	serializeType(os);
 }
 
 
@@ -44,4 +45,8 @@ void JSONSerializable::serializeKeyStringValue(std::ostream& os,
 	serializeKey(os, key);
 	serializeString(os, value);
 	os << ",\n";
+}
+
+void JSONSerializable::serializeType(std::ostream& os) const {
+	serializeKeyStringValue(os, KEY_TYPE, getType());
 }

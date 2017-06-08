@@ -10,6 +10,8 @@
 
 #include "serializable.h"
 
+char const KEY_TYPE[] = "type";
+
 class JSONSerializable : public Serializable {
 public:
 
@@ -23,6 +25,7 @@ public:
 			                  char const*, int) const;
 	void serializeKeyStringValue(std::ostream&,
 			                  char const*, char const*) const;
+	void serializeType(std::ostream&) const;
 
 };
 

@@ -36,6 +36,10 @@ public:
 
 	virtual bool serialize(std::ostream&) const;
 
+	virtual char const* getType() const {
+		return "ComplexTask";
+	}
+
 	virtual Task* clone() const {
 		return new ComplexTask(*this);
 	}

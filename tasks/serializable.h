@@ -14,6 +14,8 @@ class Serializable {
 public:
 	virtual bool serialize(std::ostream&) const = 0;
 	virtual bool deserialize(std::istream&) = 0;
+	virtual char const* getType() const = 0;
+
 	virtual ~Serializable() {}
 };
 
