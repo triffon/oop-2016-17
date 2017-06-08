@@ -19,8 +19,10 @@ struct StackElement {
 
 template <typename T>
 class LinkedStack : public AbstractStack<T> {
-private:
+protected:
 	StackElement<T>* top;
+
+private:
 
 	void copy(StackElement<T>* toCopy);
 

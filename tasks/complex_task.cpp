@@ -41,3 +41,35 @@ unsigned ComplexTask::work(unsigned effort) {
 	progress += originalEffort - effort;
 	return effort;
 }
+
+ComplexTask::ComplexTask(ComplexTask const& ct) :
+		SimpleTask(ct), LinkedStack<Task*>(ct) {
+	copy(ct);
+}
+
+ComplexTask& ComplexTask::operator=(ComplexTask const& ct) {
+	if (this != &ct) {
+		SimpleTask::operator=(ct);
+		clean();
+		LinkedStack<Task*>::operator=(ct);
+		copy(ct);
+	}
+	return *this;
+}
+
+ComplexTask::~ComplexTask() {
+	clean();
+}
+
+void ComplexTask::copy(ComplexTask const& ct) {
+	StackElement<Task*> *p = top;
+	while (p != nullptr) {
+		p->data = p->data->clone();
+		p = p->next;
+	}
+}
+
+void ComplexTask::clean() {
+	while(!empty())
+		delete pop();
+}

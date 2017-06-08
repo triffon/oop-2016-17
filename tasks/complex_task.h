@@ -13,8 +13,18 @@
 
 class ComplexTask : public SimpleTask,
 					private LinkedStack<Task*> {
+private:
+	void copy(ComplexTask const&);
+	void clean();
+
 public:
 	ComplexTask(char const* _name = "<сложна задача>");
+
+	ComplexTask(ComplexTask const&);
+
+	ComplexTask& operator=(ComplexTask const&);
+
+	virtual ~ComplexTask();
 
 	virtual unsigned work(unsigned effort = 1);
 
