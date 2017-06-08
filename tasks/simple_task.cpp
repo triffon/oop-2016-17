@@ -26,4 +26,19 @@ void SimpleTask::print(std::ostream& os) const {
 	os << " и напредък " << getProgress();
 }
 
+void SimpleTask::serializeSize(std::ostream& os) const {
+	serializeKeyIntValue(os, KEY_SIZE, getSize());
+}
 
+void SimpleTask::serializeProgress(std::ostream& os) const {
+	serializeKeyIntValue(os, KEY_PROGRESS, getProgress());
+}
+
+bool SimpleTask::serialize(std::ostream& os) const {
+	startSerialize(os);
+	serializeName(os);
+	serializeSize(os);
+	serializeProgress(os);
+	finishSerialize(os);
+	return os.good();
+}
