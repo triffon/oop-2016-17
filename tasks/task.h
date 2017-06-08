@@ -10,12 +10,20 @@
 
 #include "printable.h"
 #include "cloneable.h"
+#include "json_serializable.h"
 
-class Task : public Printable, public Cloneable<Task> {
+const char KEY_NAME[] = "name";
+
+class Task : public Printable, public Cloneable<Task>,
+			 public JSONSerializable {
 private:
 	char* name;
 
 	void setName(char const* _name);
+
+protected:
+
+	void serializeName(std::ostream&) const;
 
 public:
 	Task(char const* _name = "<задача>");
@@ -46,7 +54,10 @@ public:
 	virtual unsigned work(unsigned effort = 1) = 0;
 
 	virtual void print(std::ostream& os = std::cout) const;
-};
 
+	virtual bool serialize(std::ostream&) const;
+
+	virtual bool deserialize(std::istream&) {}
+};
 
 #endif /* TASK_H_ */

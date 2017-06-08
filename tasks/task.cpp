@@ -42,7 +42,13 @@ void Task::print(std::ostream& os) const {
 	os << "задача '" << getName() << "'";
 }
 
+bool Task::serialize(std::ostream& os) const {
+	startSerialize(os);
+	serializeName(os);
+	finishSerialize(os);
+	return os.good();
+}
 
-
-
-
+void Task::serializeName(std::ostream& os) const {
+	serializeKeyStringValue(os, KEY_NAME, getName());
+}

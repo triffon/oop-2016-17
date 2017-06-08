@@ -75,9 +75,15 @@ void testComplexTask() {
 	testWork(oop);
 }
 
+void testSerialize() {
+	QuickTask qt("нанасяне на оценки");
+	qt.serialize(std::cout);
+}
+
 int main() {
 	// testTasks();
-	testComplexTask();
+	// testComplexTask();
+	testSerialize();
 	return 0;
 }
 
