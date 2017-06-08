@@ -81,6 +81,11 @@ void testSerialize() {
 
 	SimpleTask st("изпит за ниво 6", 2);
 	st.serialize(std::cout);
+
+	RepeatTask rt("курс ООП",
+					  SimpleTask("лекция по ООП", 3),
+					  15);
+	rt.serialize(std::cout);
 }
 
 int main() {

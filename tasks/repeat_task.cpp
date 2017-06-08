@@ -85,3 +85,34 @@ RepeatTask& RepeatTask::operator=(RepeatTask const& rt) {
 RepeatTask::~RepeatTask() {
 	clean();
 }
+
+void RepeatTask::serializeRepetitions(std::ostream& os) const {
+	serializeKeyIntValue(os, KEY_REPETITIONS, getRepetitions());
+}
+
+void RepeatTask::serializeRepeatProgress(std::ostream& os) const {
+	serializeKeyIntValue(os, KEY_REPEAT_PROGRESS, getRepeatProgress());
+}
+
+void RepeatTask::serializeBaseTask(std::ostream& os) const {
+	serializeKey(os, KEY_BASE_TASK);
+	baseTask->serialize(os);
+	os << ",\n";
+}
+
+void RepeatTask::serializeCurrentTask(std::ostream& os) const {
+	serializeKey(os, KEY_CURRENT_TASK);
+	currentTask->serialize(os);
+	os << ",\n";
+}
+
+bool RepeatTask::serialize(std::ostream& os) const {
+	startSerialize(os);
+	serializeName(os);
+	serializeRepetitions(os);
+	serializeRepeatProgress(os);
+	serializeBaseTask(os);
+	serializeCurrentTask(os);
+	finishSerialize(os);
+	return os.good();
+}

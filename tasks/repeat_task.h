@@ -10,6 +10,11 @@
 
 #include "simple_task.h"
 
+const char KEY_REPETITIONS[] = "repetitions";
+const char KEY_REPEAT_PROGRESS[] = "repeatProgress";
+const char KEY_BASE_TASK[] = "baseTask";
+const char KEY_CURRENT_TASK[] = "currentTask";
+
 class RepeatTask : public SimpleTask {
 private:
 	Task const* baseTask;
@@ -19,6 +24,11 @@ private:
 
 	void copy(RepeatTask const&);
 	void clean();
+
+	void serializeRepetitions(std::ostream& os) const;
+	void serializeRepeatProgress(std::ostream& os) const;
+	void serializeBaseTask(std::ostream& os) const;
+	void serializeCurrentTask(std::ostream& os) const;
 
 public:
 	RepeatTask(char const* _name = "<повтаряема задача>",
@@ -46,6 +56,8 @@ public:
 	virtual unsigned work(unsigned effort = 1);
 
 	virtual void print(std::ostream& os = std::cout) const;
+
+	virtual bool serialize(std::ostream&) const;
 
 	virtual Task* clone() const {
 		return new RepeatTask(*this);
