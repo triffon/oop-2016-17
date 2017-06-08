@@ -9,6 +9,7 @@
 #include "quick_task.h"
 #include "simple_task.h"
 #include "repeat_task.h"
+#include "complex_task.h"
 
 void nl() {
 	std::cout << std::endl;
@@ -56,8 +57,27 @@ void testTasks() {
 	testWork(fmi);
 }
 
+void testComplexTask() {
+	ComplexTask oop("ООП");
+	oop.addTask(QuickTask("нанасяне на оценки"));
+	oop.addTask(SimpleTask("изпит за ниво 6", 2));
+	oop.addTask(SimpleTask("изпит за нива 4 и 5", 3));
+	oop.addTask(SimpleTask("изпит за ниво 3", 2));
+
+	ComplexTask oopWeek("седмични занятия");
+	oopWeek.addTask(SimpleTask("лекция", 3));
+	oopWeek.addTask(SimpleTask("упражнение", 2));
+
+	oop.addTask(RepeatTask("занятия", oopWeek, 15));
+
+	oop.print();
+
+	testWork(oop);
+}
+
 int main() {
-	testTasks();
+	// testTasks();
+	testComplexTask();
 	return 0;
 }
 

@@ -11,7 +11,7 @@
 #include "task.h"
 
 class SimpleTask : public Task {
-private:
+protected:
 	unsigned size;
 	unsigned progress;
 	// Инварианта: 0 <= progress <= size
